@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Complejo Educativo 10 de octubre 1987</title>
+  <!-- Font Awesome 6 (gratuito) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background-color: #f4f7fc;
+      color: #1e293b;
+      line-height: 1.6;
+    }
+
+    /* contenedor general */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ===== HEADER / NAV ===== */
+    header {
+      background: linear-gradient(135deg, #0b2a4a 0%, #1a4b6d 100%);
+      color: white;
+      padding: 20px 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .logo span {
+      color: #facc15;
+    }
+    .logo i {
+      color: #facc15;
+      margin-right: 8px;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .nav-menu a {
+      color: #e2e8f0;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.05rem;
+      transition: color 0.3s, transform 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-menu a:hover {
+      color: #facc15;
+      transform: translateY(-2px);
+    }
+
+    .nav-menu a i {
+      font-size: 1rem;
+    }
+
+    .btn-contacto {
+      background: #facc15;
+      color: #0b2a4a !important;
+      padding: 8px 18px;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .btn-contacto:hover {
+      background: #fde047;
+      transform: scale(1.04);
+      color: #0b2a4a !important;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: linear-gradient(135deg, #e8f0fe 0%, #d4e2f5 100%);
+      padding: 60px 0 70px;
+      border-bottom: 4px solid #facc15;
+    }
+
+    .hero-grid {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .hero-text {
+      flex: 1 1 300px;
+    }
+
+    .hero-text h2 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #0b2a4a;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .hero-text h2 i {
+      color: #facc15;
+      margin-right: 10px;
+    }
+
+    .hero-text p {
+      font-size: 1.2rem;
+      color: #1e3a5f;
+      margin-bottom: 25px;
+      max-width: 550px;
+    }
+
+    .btn-principal {
+      display: inline-block;
+      background: #0b2a4a;
+      color: white;
+      padding: 14px 34px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      text-decoration: none;
+      transition: background 0.3s, transform 0.2s;
+      box-shadow: 0 6px 14px rgba(11, 42, 74, 0.3);
+    }
+
+    .btn-principal i {
+      margin-right: 10px;
+    }
+
+    .btn-principal:hover {
+      background: #1a4b6d;
+      transform: translateY(-3px);
+    }
+
+    .hero-image {
+      flex: 1 1 300px;
+      text-align: center;
+      font-size: 8rem;
+      color: #0b2a4a;
+      opacity: 0.9;
+      background: rgba(255,255,255,0.3);
+      padding: 20px;
+      border-radius: 40px;
+      backdrop-filter: blur(4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+    }
+
+    .hero-image i {
+      filter: drop-shadow(0 10px 8px rgba(0,0,0,0.1));
+    }
+
+    /* ===== SECCIÓN SERVICIOS ===== */
+    .servicios {
+      padding: 70px 0 60px;
+      background: white;
+    }
+
+    .seccion-titulo {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .seccion-titulo h3 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #0b2a4a;
+    }
+
+    .seccion-titulo h3 i {
+      color: #facc15;
+      margin-right: 12px;
+    }
+
+    .seccion-titulo p {
+      font-size: 1.15rem;
+      color: #475569;
+      max-width: 650px;
+      margin: 10px auto 0;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 30px;
+    }
+
+    .card-servicio {
+      background: #f8fafc;
+      padding: 30px 20px;
+      border-radius: 28px;
+      text-align: center;
+      transition: transform 0.25s, box-shadow 0.3s;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.02);
+      border: 1px solid #e9eef3;
+    }
+
+    .card-servicio:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 16px 30px rgba(11, 42, 74, 0.10);
+      border-color: #facc15;
+    }
+
+    .card-servicio i {
+      font-size: 3.2rem;
+      color: #0b2a4a;
+      background: #e2eaf5;
+      padding: 18px;
+      border-radius: 60px;
+      margin-bottom: 20px;
+      transition: background 0.3s;
+    }
+
+    .card-servicio:hover i {
+      background: #facc15;
+      color: #0b2a4a;
+    }
+
+    .card-servicio h4 {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+      color: #0b2a4a;
+    }
+
+    .card-servicio p {
+      color: #334155;
+      font-size: 0.98rem;
+    }
+
+    /* ===== INSTALACIONES ===== */
+    .instalaciones {
+      background: #eef3f9;
+      padding: 70px 0 60px;
+    }
+
+    .galeria {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 25px;
+      margin-top: 20px;
+    }
+
+    .item-galeria {
+      background: white;
+      border-radius: 28px;
+      padding: 20px 10px 20px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+      transition: transform 0.2s, box-shadow 0.3s;
+      border: 1px solid #dce5ef;
+    }
+
+    .item-galeria:hover {
+      transform: scale(1.02);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.06);
+      border-color: #facc15;
+    }
+
+    .item-galeria i {
+      font-size: 3.6rem;
+      color: #1a4b6d;
+      background: #f1f6fd;
+      padding: 18px;
+      border-radius: 60px;
+      margin-bottom: 12px;
+    }
+
+    .item-galeria h5 {
+      font-size: 1.2rem;
+      color: #0b2a4a;
+      margin-bottom: 6px;
+    }
+
+    .item-galeria p {
+      font-size: 0.9rem;
+      color: #475569;
+    }
+
+    /* ===== TESTIMONIO / CITA ===== */
+    .testimonio {
+      background: #0b2a4a;
+      color: white;
+      padding: 50px 0;
+      text-align: center;
+    }
+
+    .testimonio blockquote {
+      font-size: 1.6rem;
+      font-weight: 300;
+      font-style: italic;
+      max-width: 750px;
+      margin: 0 auto 15px;
+    }
+
+    .testimonio blockquote i {
+      color: #facc15;
+      margin: 0 10px;
+    }
+
+    .testimonio cite {
+      font-size: 1.1rem;
+      color: #facc15;
+      font-weight: 400;
+    }
+
+    /* ===== CONTACTO ===== */
+    .contacto {
+      padding: 70px 0 60px;
+      background: white;
+    }
+
+    .contacto-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: center;
+    }
+
+    .info-contacto {
+      flex: 1 1 250px;
+    }
+
+    .info-contacto h4 {
+      font-size: 1.8rem;
+      color: #0b2a4a;
+      margin-bottom: 20px;
+    }
+
+    .info-contacto p {
+      margin-bottom: 16px;
+      font-size: 1.05rem;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .info-contacto i {
+      width: 30px;
+      color: #facc15;
+      font-size: 1.4rem;
+    }
+
+    .form-contacto {
+      flex: 2 1 320px;
+      background: #f8fafc;
+      padding: 30px 30px 35px;
+      border-radius: 36px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.02);
+      border: 1px solid #e2eaf2;
+    }
+
+    .form-contacto h4 {
+      font-size: 1.6rem;
+      color: #0b2a4a;
+      margin-bottom: 25px;
+    }
+
+    .form-grupo {
+      margin-bottom: 20px;
+    }
+
+    .form-grupo label {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 6px;
+      color: #1e3a5f;
+    }
+
+    .form-grupo input,
+    .form-grupo textarea {
+      width: 100%;
+      padding: 14px 18px;
+      border-radius: 40px;
+      border: 1px solid #d1dce8;
+      font-size: 1rem;
+      transition: border 0.3s, box-shadow 0.2s;
+      background: white;
+    }
+
+    .form-grupo input:focus,
+    .form-grupo textarea:focus {
+      outline: none;
+      border-color: #facc15;
+      box-shadow: 0 0 0 4px rgba(250, 204, 21, 0.2);
+    }
+
+    .form-grupo textarea {
+      min-height: 100px;
+      border-radius: 24px;
+      resize: vertical;
+    }
+
+    .btn-enviar {
+      background: #0b2a4a;
+      color: white;
+      border: none;
+      padding: 14px 34px;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-enviar:hover {
+      background: #1a4b6d;
+      transform: scale(1.02);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #0a1e30;
+      color: #b3c9dd;
+      padding: 30px 0;
+      text-align: center;
+      border-top: 2px solid #facc15;
+    }
+
+    footer .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    footer .footer-links a {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+
+    footer .footer-links a:hover {
+      color: #facc15;
+    }
+
+    footer p {
+      font-size: 0.95rem;
+    }
+
+    footer i {
+      color: #facc15;
+      margin: 0 4px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .header-flex {
+        flex-direction: column;
+        gap: 16px;
+      }
+      .nav-menu {
+        justify-content: center;
+        gap: 18px;
+      }
+      .hero-text h2 {
+        font-size: 2.2rem;
+      }
+      .hero-image {
+        font-size: 5rem;
+      }
+      .seccion-titulo h3 {
+        font-size: 2rem;
+      }
+      .contacto-grid {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .logo h1 {
+        font-size: 1.6rem;
+      }
+      .nav-menu a {
+        font-size: 0.9rem;
+      }
+      .btn-contacto {
+        padding: 6px 14px;
+      }
+      .hero-text h2 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container header-flex">
+    <div class="logo">
+      <h1><i class="fas fa-graduation-cap"></i>Complejo <span>Horizonte</span></h1>
+    </div>
+    <nav class="nav-menu">
+      <a href="#inicio"><i class="fas fa-home"></i> Inicio</a>
+      <a href="#servicios"><i class="fas fa-chalkboard-teacher"></i> Servicios</a>
+      <a href="#instalaciones"><i class="fas fa-building"></i> Instalaciones</a>
+      <a href="#contacto" class="btn-contacto"><i class="fas fa-phone-alt"></i> Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section id="inicio" class="hero">
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <h2><i class="fas fa-school"></i>Educación que transforma</h2>
+        <p>Formación integral, innovación y valores en un entorno académico de excelencia. Más de 30 años construyendo futuro.</p>
+        <a href="#contacto" class="btn-principal"><i class="fas fa-arrow-right"></i> Solicita información</a>
+      </div>
+      <div class="hero-image">
+        <i class="fas fa-university"></i>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section id="servicios" class="servicios">
+    <div class="container">
+      <div class="seccion-titulo">
+        <h3><i class="fas fa-star"></i> Nuestros servicios</h3>
+        <p>Oferta educativa completa desde infantil hasta bachillerato, con programas deportivos, artísticos y tecnológicos.</p>
+      </div>
+      <div class="cards-grid">
+        <div class="card-servicio">
+          <i class="fas fa-child"></i>
+          <h4>Educación Infantil</h4>
+          <p>Aprendizaje lúdico, estimulación temprana y desarrollo socioemocional en un ambiente seguro.</p>
+        </div>
+        <div class="card-servicio">
+          <i class="fas fa-book-open"></i>
+          <h4>Primaria y Secundaria</h4>
+          <p>Plan de estudios innovador, idiomas, robótica y proyectos interdisciplinares.</p>
+        </div>
+        <div class="card-servicio">
+          <i class="fas fa-flask"></i>
+          <h4>Bachillerato + STEAM</h4>
+          <p>Preparación universitaria con laboratorios, talleres de ciencia y tecnología.</p>
+        </div>
+        <div class="card-servicio">
+          <i class="fas fa-futbol"></i>
+          <h4>Actividades extraescolares</h4>
+          <p>Deportes, música, arte, teatro y clubes de idiomas para un desarrollo completo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTALACIONES -->
+  <section id="instalaciones" class="instalaciones">
+    <div class="container">
+      <div class="seccion-titulo">
+        <h3><i class="fas fa-map-pin"></i> Instalaciones</h3>
+        <p>Espacios diseñados para inspirar, aprender y convivir en armonía.</p>
+      </div>
+      <div class="galeria">
+        <div class="item-galeria">
+          <i class="fas fa-chalkboard"></i>
+          <h5>Aulas digitales</h5>
+          <p>Pizarras interactivas, conectividad y mobiliario ergonómico.</p>
+        </div>
+        <div class="item-galeria">
+          <i class="fas fa-microscope"></i>
+          <h5>Laboratorios</h5>
+          <p>Biología, química y física con equipamiento de última generación.</p>
+        </div>
+        <div class="item-galeria">
+          <i class="fas fa-dumbbell"></i>
+          <h5>Polideportivo</h5>
+          <p>Canchas cubiertas, piscina y pistas de atletismo.</p>
+        </div>
+        <div class="item-galeria">
+          <i class="fas fa-tree"></i>
+          <h5>Áreas verdes</h5>
+          <p>Jardines, huerto escolar y zonas de recreo.</p>
+        </div>
+        <div class="item-galeria">
+          <i class="fas fa-music"></i>
+          <h5>Auditorio</h5>
+          <p>Salón de actos con acústica profesional y escenario.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIO -->
+  <section class="testimonio">
+    <div class="container">
+      <blockquote>
+        <i class="fas fa-quote-left"></i> 
+        Un lugar donde el conocimiento y los valores se encuentran. Mis hijos han crecido académica y personalmente.
+        <i class="fas fa-quote-right"></i>
+      </blockquote>
+      <cite>— Familia Martínez, padres de alumnos</cite>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="contacto">
+    <div class="container">
+      <div class="seccion-titulo">
+        <h3><i class="fas fa-envelope"></i> Contacta con nosotros</h3>
+        <p>Déjanos tu mensaje y te atenderemos a la mayor brevedad.</p>
+      </div>
+      <div class="contacto-grid">
+        <div class="info-contacto">
+          <h4><i class="fas fa-map-marker-alt" style="color: #facc15;"></i> Ubicación</h4>
+          <p><i class="fas fa-location-dot"></i> Av. de la Educación 42, 28040 Madrid</p>
+          <p><i class="fas fa-phone"></i> +34 910 123 456</p>
+          <p><i class="fas fa-envelope"></i> info@complejohorizonte.es</p>
+          <p><i class="fas fa-clock"></i> Lun-Vie: 8:30 – 18:30</p>
+          <div style="margin-top: 20px; display: flex; gap: 18px; font-size: 2rem;">
+            <a href="#" style="color:#0b2a4a;"><i class="fab fa-facebook"></i></a>
+            <a href="#" style="color:#0b2a4a;"><i class="fab fa-instagram"></i></a>
+            <a href="#" style="color:#0b2a4a;"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="form-contacto">
+          <h4><i class="fas fa-pencil-alt"></i> Envíanos un mensaje</h4>
+          <form action="#" method="post">
+            <div class="form-grupo">
+              <label for="nombre"><i class="fas fa-user"></i> Nombre completo</label>
+              <input type="text" id="nombre" name="nombre" placeholder="Ej: Ana Pérez" required>
+            </div>
+            <div class="form-grupo">
+              <label for="email"><i class="fas fa-at"></i> Correo electrónico</label>
+              <input type="email" id="email" name="email" placeholder="tú@ejemplo.com" required>
+            </div>
+            <div class="form-grupo">
+              <label for="mensaje"><i class="fas fa-comment"></i> Mensaje</label>
+              <textarea id="mensaje" name="mensaje" placeholder="Escribe tu consulta..."></textarea>
+            </div>
+            <button type="submit" class="btn-enviar"><i class="fas fa-paper-plane"></i> Enviar mensaje</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-links">
+      <a href="#inicio">Inicio</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#instalaciones">Instalaciones</a>
+      <a href="#contacto">Contacto</a>
+      <a href="#"><i class="fas fa-shield-alt"></i> Aviso legal</a>
+    </div>
+    <p><i class="fas fa-graduation-cap"></i> Complejo Educativo Horizonte · 2026 · Inspiramos mentes, construimos comunidad.</p>
+  </div>
+</footer>
+
+<!-- pequeño script para el smooth scroll (opcional) -->
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
